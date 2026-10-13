@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BESS India Market Entry Strategy & Analytics Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857',
+                        },
+                        navy: {
+                            800: '#1e293b',
+                            900: '#0f172a',
+                            950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        code, pre { font-family: 'JetBrains Mono', monospace; }
+        .tab-active { border-bottom: 2px solid #10b981; color: #10b981; font-weight: 600; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col">
+
+    <!-- Header Navigation -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center font-bold text-xl text-slate-950">
+                    ⚡
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+                        AuraGrid Analytics <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded-full border border-emerald-500/30">Interview Portfolio Project</span>
+                    </h1>
+                    <p class="text-xs text-slate-400">Market Entry Strategy & Competitive Analysis: BESS in India</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-slate-800 text-slate-300 border border-slate-700">
+                    <span class="w-2 h-2 mr-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    Portfolio Presentation Mode
+                </span>
+            </div>
+        </div>
+        
+        <!-- Navigation Tabs -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-8 text-sm border-t border-slate-800/60">
+            <button onclick="switchTab('tab-overview')" id="btn-tab-overview" class="py-3 px-1 tab-active transition-colors">Executive Overview</button>
+            <button onclick="switchTab('tab-sql')" id="btn-tab-sql" class="py-3 px-1 text-slate-400 hover:text-slate-200 transition-colors">MySQL Scoring Model</button>
+            <button onclick="switchTab('tab-financial')" id="btn-tab-financial" class="py-3 px-1 text-slate-400 hover:text-slate-200 transition-colors">3-Year Financial Model</button>
+            <button onclick="switchTab('tab-competitive')" id="btn-tab-competitive" class="py-3 px-1 text-slate-400 hover:text-slate-200 transition-colors">Competitive Matrix & Gaps</button>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1 w-full">
+
+        <!-- ==================================================================== -->
+        <!-- TAB 1: EXECUTIVE OVERVIEW -->
+        <!-- ==================================================================== -->
+        <div id="tab-overview" class="space-y-6">
+            <!-- Strategic Headline Banner -->
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-8">
+                <div class="max-w-3xl">
+                    <span class="text-emerald-400 text-xs font-semibold tracking-wider uppercase">Strategic Business Mandate</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-2 leading-tight">
+                        Unlocking India's $3.8B Battery Energy Storage Market: The C&I Commercialization Playbook
+                    </h2>
+                    <p class="text-slate-300 text-sm sm:text-base mt-3 leading-relaxed">
+                        An end-to-end quantitative market entry strategy that combines a <strong>MySQL weighted scoring algorithm</strong> for geospatial site selection with a <strong>3-year revenue sensitivity model</strong> and a differentiated <strong>Energy Storage-as-a-Service (ESaaS)</strong> competitive entry vector.
+                    </p>
+                </div>
+
+                <!-- KPI Metric Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-6 border-t border-slate-800/80">
+                    <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-xs text-slate-400">Anchor Wave 1 Target</span>
+                        <div class="text-2xl font-bold text-emerald-400 mt-1">Gujarat & Maha</div>
+                        <span class="text-xs text-slate-500">Score: 77.2 & 75.0</span>
+                    </div>
+                    <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-xs text-slate-400">Base 3-Yr Revenue</span>
+                        <div class="text-2xl font-bold text-cyan-400 mt-1">$62.7M</div>
+                        <span class="text-xs text-slate-500">153% Revenue CAGR</span>
+                    </div>
+                    <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-xs text-slate-400">Aggressive 3-Yr Upside</span>
+                        <div class="text-2xl font-bold text-amber-400 mt-1">$90.1M</div>
+                        <span class="text-xs text-emerald-400">+$27.4M Delta (+43.6%)</span>
+                    </div>
+                    <div class="bg-slate-950/60 border border-slate-800 p-4 rounded-xl">
+                        <span class="text-xs text-slate-400">Strategic Entry Gap</span>
+                        <div class="text-2xl font-bold text-purple-400 mt-1">Zero-Capex ESaaS</div>
+                        <span class="text-xs text-slate-500">&lt;12h Regional SLA</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phased Roadmap Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-slate-900 border border-emerald-500/30 rounded-xl p-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-emerald-500"></div>
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wider">Phase 1: Year 1</span>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-300 px-2 py-0.5 rounded">Anchor Hub</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mt-2">Western Corridor Launch</h3>
+                    <p class="text-xs text-slate-400 mt-2">
+                        Targeting 10–12 high-tariff C&I manufacturing clients across Gujarat (Dahej/Sanand) and Maharashtra (Chakan). Capitalize on ₹11+ peak power rates.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-300 flex justify-between">
+                        <span>Milestone:</span>
+                        <strong class="text-white">$6.0M – $7.2M Rev</strong>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-cyan-500/30 rounded-xl p-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-cyan-500"></div>
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-cyan-400 uppercase tracking-wider">Phase 2: Year 2</span>
+                        <span class="text-xs bg-cyan-500/20 text-cyan-300 px-2 py-0.5 rounded">Scale & Density</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mt-2">Southern Expansion</h3>
+                    <p class="text-xs text-slate-400 mt-2">
+                        Scale into Tamil Nadu and Karnataka. Launch decentralized battery service nodes to maintain &lt;12h SLA and capture multi-site enterprise accounts.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-300 flex justify-between">
+                        <span>Milestone:</span>
+                        <strong class="text-white">$18.2M – $24.1M Rev</strong>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-purple-500/30 rounded-xl p-6 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 bg-purple-500"></div>
+                    <div class="flex justify-between items-start">
+                        <span class="text-xs font-bold text-purple-400 uppercase tracking-wider">Phase 3: Year 3</span>
+                        <span class="text-xs bg-purple-500/20 text-purple-300 px-2 py-0.5 rounded">Market Dominance</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-white mt-2">Full C&I Leadership</h3>
+                    <p class="text-xs text-slate-400 mt-2">
+                        Optimize CAC to $30k via channel referral flywheel. Monetize proprietary cloud EMS analytics with 90%+ annual account retention.
+                    </p>
+                    <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-300 flex justify-between">
+                        <span>Milestone:</span>
+                        <strong class="text-white">$38.5M – $58.8M Rev</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== -->
+        <!-- TAB 2: MYSQL WEIGHTED SCORING MODEL -->
+        <!-- ==================================================================== -->
+        <div id="tab-sql" class="hidden space-y-6">
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Left: Interactive Simulator -->
+                <div class="w-full md:w-5/12 bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-5">
+                    <h3 class="text-base font-bold text-white flex items-center justify-between">
+                        <span>Interactive Weight Modeler</span>
+                        <span class="text-xs text-slate-400 font-normal">Real-Time Recalculation</span>
+                    </h3>
+                    <p class="text-xs text-slate-400">
+                        Adjust weights to stress-test regional sensitivity. The baseline project formula uses <strong>Demand (40%)</strong>, <strong>Profitability (40%)</strong>, and <strong>Competition (-20% penalty)</strong>.
+                    </p>
+
+                    <div class="space-y-4 text-xs">
+                        <div>
+                            <div class="flex justify-between text-slate-300 mb-1">
+                                <span>Demand Potential Weight</span>
+                                <span id="val-demand" class="font-bold text-emerald-400">40%</span>
+                            </div>
+                            <input id="range-demand" type="range" min="10" max="70" value="40" class="w-full accent-emerald-500 cursor-pointer" oninput="updateWeights()">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-slate-300 mb-1">
+                                <span>Expected Profitability Weight</span>
+                                <span id="val-profit" class="font-bold text-cyan-400">40%</span>
+                            </div>
+                            <input id="range-profit" type="range" min="10" max="70" value="40" class="w-full accent-cyan-500 cursor-pointer" oninput="updateWeights()">
+                        </div>
+
+                        <div>
+                            <div class="flex justify-between text-slate-300 mb-1">
+                                <span>Competition Penalty Weight</span>
+                                <span id="val-comp" class="font-bold text-rose-400">20%</span>
+                            </div>
+                            <input id="range-comp" type="range" min="5" max="50" value="20" class="w-full accent-rose-500 cursor-pointer" oninput="updateWeights()">
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800">
+                        <button onclick="resetWeights()" class="w-full py-2 bg-slate-800 hover:bg-slate-700 text-xs font-semibold rounded-lg text-slate-300 transition-colors">
+                            Reset to Baseline Formula
+                        </button>
+                    </div>
+
+                    <!-- Defending SQL in Interview Accordion -->
+                    <div class="bg-slate-950 border border-slate-800 p-4 rounded-xl space-y-2">
+                        <span class="text-xs font-bold text-emerald-400 uppercase tracking-wide">💡 Interview Defense Talking Points</span>
+                        <ul class="text-xs text-slate-300 space-y-1.5 list-disc list-inside">
+                            <li><strong>Normalized Inversion:</strong> Applied <code class="text-emerald-300">(100 - comp) * 0.20</code> to maintain strict 0–100 scale bounds.</li>
+                            <li><strong>CTEs:</strong> Decoupled scoring logic from window ranking for testing and maintenance.</li>
+                            <li><strong>Window RANK():</strong> Used <code class="text-emerald-300">RANK() OVER()</code> for true ordinal ranking and <code class="text-emerald-300">AVG() OVER()</code> for peer benchmark delta.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Right: Live Ranked Table & Chart -->
+                <div class="w-full md:w-7/12 space-y-6">
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                        <h3 class="text-base font-bold text-white mb-4">Ranked Market Attractiveness Index</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full text-left text-xs text-slate-300">
+                                <thead class="text-slate-400 uppercase bg-slate-950 border-b border-slate-800">
+                                    <tr>
+                                        <th class="py-2.5 px-3">Rank</th>
+                                        <th class="py-2.5 px-3">State</th>
+                                        <th class="py-2.5 px-3">Grid</th>
+                                        <th class="py-2.5 px-3">Demand</th>
+                                        <th class="py-2.5 px-3">Profit</th>
+                                        <th class="py-2.5 px-3">Comp</th>
+                                        <th class="py-2.5 px-3 font-bold text-emerald-400">Score</th>
+                                        <th class="py-2.5 px-3">Strategic Phase</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table-rankings" class="divide-y divide-slate-800/60 font-medium">
+                                    <!-- Dynamic rows inserted by JS -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Bar Chart for Market Scores -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                        <h4 class="text-sm font-bold text-white mb-3">Composite Score Comparison vs National Cohort Benchmark</h4>
+                        <div class="h-56">
+                            <canvas id="chart-scores"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SQL Query Viewer Block -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        <span class="text-emerald-400">SQL</span> Production Query Code: <code>03_weighted_scoring_model.sql</code>
+                    </h3>
+                    <span class="text-xs text-slate-500">MySQL 8.0+ Compatible</span>
+                </div>
+                <pre class="bg-slate-950 p-4 rounded-xl text-xs text-emerald-300/90 overflow-x-auto leading-relaxed border border-slate-800"><code>WITH normalized_metrics AS (
+    SELECT 
+        region_id, state_name, grid_region,
+        demand_potential, competitive_intensity, expected_profitability,
+        ROUND(
+            (demand_potential * 0.40) + 
+            (expected_profitability * 0.40) + 
+            ((100.0 - competitive_intensity) * 0.20), 
+            2
+        ) AS composite_market_score
+    FROM regional_bess_market_data
+),
+market_rankings AS (
+    SELECT 
+        region_id, state_name, grid_region,
+        composite_market_score,
+        RANK() OVER (ORDER BY composite_market_score DESC) AS entry_rank,
+        ROUND(composite_market_score - AVG(composite_market_score) OVER (), 2) AS spread_vs_national_avg
+    FROM normalized_metrics
+)
+SELECT entry_rank, state_name, grid_region, composite_market_score, spread_vs_national_avg,
+    CASE 
+        WHEN entry_rank = 1 THEN 'Wave 1: Immediate Market Entry'
+        WHEN entry_rank &lt;= 3 THEN 'Wave 2: Secondary Expansion'
+        ELSE 'Wave 3: Opportunistic'
+    END AS strategic_recommendation
+FROM market_rankings
+ORDER BY entry_rank ASC;</code></pre>
+            </div>
+        </div>
+
+        <!-- ==================================================================== -->
+        <!-- TAB 3: 3-YEAR FINANCIAL MODEL & SENSITIVITY -->
+        <!-- ==================================================================== -->
+        <div id="tab-financial" class="hidden space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Revenue Trajectory Chart -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-base font-bold text-white">3-Year Revenue Trajectory ($M)</h3>
+                        <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded font-semibold">+43.6% GTM Delta</span>
+                    </div>
+                    <div class="h-64">
+                        <canvas id="chart-financial"></canvas>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-4 leading-relaxed">
+                        Compounding growth driver: Lowering CAC ($45k → $30k) combined with high retention (80% → 92%) drives an additional <strong>+$27.35M in cumulative revenue</strong> on an identical $3.1M total marketing budget.
+                    </p>
+                </div>
+
+                <!-- Cumulative Comparison & Drivers Card -->
+                <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 space-y-4">
+                    <h3 class="text-base font-bold text-white">Unit Economics & Customer Growth Funnel</h3>
+                    <div class="grid grid-cols-2 gap-3 text-xs">
+                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                            <span class="text-slate-400">Base Case 3-Yr Accounts</span>
+                            <div class="text-xl font-bold text-cyan-400 mt-1">55 Active</div>
+                            <span class="text-slate-500 text-[11px]">$38.5M Y3 Rev | 80% Retention</span>
+                        </div>
+                        <div class="bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                            <span class="text-slate-400">Aggressive 3-Yr Accounts</span>
+                            <div class="text-xl font-bold text-emerald-400 mt-1">84 Active</div>
+                            <span class="text-emerald-400/90 text-[11px]">$58.8M Y3 Rev | 92% Retention</span>
+                        </div>
+                    </div>
+
+                    <!-- Step-by-Step Math Box -->
+                    <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs space-y-2">
+                        <span class="font-bold text-amber-400 uppercase tracking-wide">Step-by-Step Mathematical Formulation</span>
+                        <div class="font-mono text-[11px] text-slate-300 space-y-1">
+                            <div>• New Customers (t) = Budget(t) / CAC(t)</div>
+                            <div>• Retained Customers (t) = Active(t-1) × Retention(t)</div>
+                            <div>• Total Active Customers (t) = New + Retained</div>
+                            <div>• Total Revenue (t) = Total Active × AOV(t)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Comparison Table -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                <h3 class="text-base font-bold text-white mb-4">Detailed Financial Projection Breakdown</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-xs text-slate-300">
+                        <thead class="text-slate-400 uppercase bg-slate-950 border-b border-slate-800">
+                            <tr>
+                                <th class="py-2.5 px-3">Scenario</th>
+                                <th class="py-2.5 px-3">Year</th>
+                                <th class="py-2.5 px-3">Mktg Spend</th>
+                                <th class="py-2.5 px-3">Target CAC</th>
+                                <th class="py-2.5 px-3">Retention</th>
+                                <th class="py-2.5 px-3">AOV ($k)</th>
+                                <th class="py-2.5 px-3">New Accts</th>
+                                <th class="py-2.5 px-3">Retained</th>
+                                <th class="py-2.5 px-3">Active Accts</th>
+                                <th class="py-2.5 px-3 font-bold text-emerald-400">Revenue ($M)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-800 font-medium">
+                            <tr class="hover:bg-slate-800/40">
+                                <td class="py-2.5 px-3 font-semibold text-cyan-400">Base Case</td>
+                                <td class="py-2.5 px-3">Year 1</td>
+                                <td class="py-2.5 px-3">$600k</td>
+                                <td class="py-2.5 px-3">$60k</td>
+                                <td class="py-2.5 px-3">70%</td>
+                                <td class="py-2.5 px-3">$600k</td>
+                                <td class="py-2.5 px-3">10</td>
+                                <td class="py-2.5 px-3">0</td>
+                                <td class="py-2.5 px-3">10</td>
+                                <td class="py-2.5 px-3 font-bold text-cyan-400">$6.00 M</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40">
+                                <td class="py-2.5 px-3 font-semibold text-cyan-400">Base Case</td>
+                                <td class="py-2.5 px-3">Year 2</td>
+                                <td class="py-2.5 px-3">$1,000k</td>
+                                <td class="py-2.5 px-3">$50k</td>
+                                <td class="py-2.5 px-3">75%</td>
+                                <td class="py-2.5 px-3">$650k</td>
+                                <td class="py-2.5 px-3">20</td>
+                                <td class="py-2.5 px-3">8</td>
+                                <td class="py-2.5 px-3">28</td>
+                                <td class="py-2.5 px-3 font-bold text-cyan-400">$18.20 M</td>
+                            </tr>
+                            <tr class="hover:bg-slate-800/40">
+                                <td class="py-2.5 px-3 font-semibold text-cyan-400">Base Case</td>
+                                <td class="py-2.5 px-3">Year 3</td>
+                                <td class="py-2.5 px-3">$1,500k</td>
+                                <td class="py-2.5 px-3">$45k</td>
+                                <td class="py-2.5 px-3">80%</td>
+                                <td class="py-2.5 px-3">$700k</td>
+                                <td class="py-2.5 px-3">33</td>
+                                <td class="py-2.5 px-3">22</td>
+                                <td class="py-2.5 px-3">55</td>
+                                <td class="py-2.5 px-3 font-bold text-cyan-400">$38.50 M</td>
+                            </tr>
+                            <tr class="bg-emerald-950/20 hover:bg-emerald-950/30">
+                                <td class="py-2.5 px-3 font-semibold text-emerald-400">Aggressive</td>
+                                <td class="py-2.5 px-3">Year 1</td>
+                                <td class="py-2.5 px-3">$600k</td>
+                                <td class="py-2.5 px-3">$50k</td>
+                                <td class="py-2.5 px-3">85%</td>
+                                <td class="py-2.5 px-3">$600k</td>
+                                <td class="py-2.5 px-3">12</td>
+                                <td class="py-2.5 px-3">0</td>
+                                <td class="py-2.5 px-3">12</td>
+                                <td class="py-2.5 px-3 font-bold text-emerald-400">$7.20 M</td>
+                            </tr>
+                            <tr class="bg-emerald-950/20 hover:bg-emerald-950/30">
+                                <td class="py-2.5 px-3 font-semibold text-emerald-400">Aggressive</td>
+                                <td class="py-2.5 px-3">Year 2</td>
+                                <td class="py-2.5 px-3">$1,000k</td>
+                                <td class="py-2.5 px-3">$38k</td>
+                                <td class="py-2.5 px-3">90%</td>
+                                <td class="py-2.5 px-3">$650k</td>
+                                <td class="py-2.5 px-3">26</td>
+                                <td class="py-2.5 px-3">11</td>
+                                <td class="py-2.5 px-3">37</td>
+                                <td class="py-2.5 px-3 font-bold text-emerald-400">$24.05 M</td>
+                            </tr>
+                            <tr class="bg-emerald-950/20 hover:bg-emerald-950/30">
+                                <td class="py-2.5 px-3 font-semibold text-emerald-400">Aggressive</td>
+                                <td class="py-2.5 px-3">Year 3</td>
+                                <td class="py-2.5 px-3">$1,500k</td>
+                                <td class="py-2.5 px-3">$30k</td>
+                                <td class="py-2.5 px-3">92%</td>
+                                <td class="py-2.5 px-3">$700k</td>
+                                <td class="py-2.5 px-3">50</td>
+                                <td class="py-2.5 px-3">34</td>
+                                <td class="py-2.5 px-3">84</td>
+                                <td class="py-2.5 px-3 font-bold text-emerald-400">$58.80 M</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================================================================== -->
+        <!-- TAB 4: COMPETITIVE MATRIX & GAPS -->
+        <!-- ==================================================================== -->
+        <div id="tab-competitive" class="hidden space-y-6">
+            <!-- Strategic Gaps Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-slate-900 border border-emerald-500/40 rounded-xl p-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">1</span>
+                        <h3 class="text-base font-bold text-white">Market Entry Gap #1: The Mid-Market Capex Hurdle</h3>
+                    </div>
+                    <div class="mt-4 space-y-2 text-xs text-slate-300">
+                        <p><strong>The Barrier:</strong> Mid-size chemical, pharmaceutical, and textile plants lack $600k+ balance-sheet capital to allocate to electrical storage.</p>
+                        <p><strong>Our Exploit:</strong> <em>Energy Storage-as-a-Service (ESaaS)</em> with <strong>Zero Upfront Capex</strong>. We fund installation via climate infra debt and split Time-of-Day (ToD) peak tariff savings (up to ₹8/kWh differential).</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 border border-purple-500/40 rounded-xl p-6">
+                    <div class="flex items-center gap-3">
+                        <span class="w-8 h-8 rounded-lg bg-purple-500/20 text-purple-400 flex items-center justify-center font-bold">2</span>
+                        <h3 class="text-base font-bold text-white">Market Entry Gap #2: The Tier-2 Service & Lifecycle SLA Vacuum</h3>
+                    </div>
+                    <div class="mt-4 space-y-2 text-xs text-slate-300">
+                        <p><strong>The Barrier:</strong> Foreign OEMs have 4-day dispatch times; cheap importers leave maintenance to local electricians, causing rapid thermal cell degradation in Indian heat.</p>
+                        <p><strong>Our Exploit:</strong> Regional service hubs in Ahmedabad & Pune guaranteeing <strong>&lt;12-hour dispatch</strong> + IoT cloud telemetry with 99.5% uptime SLA.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4-Vector Competitor Comparison Matrix -->
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+                <h3 class="text-base font-bold text-white mb-4">Competitor Benchmarking Matrix (4 Core Vectors)</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+                    <!-- Competitor A -->
+                    <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="font-bold text-white text-sm">VoltGrid Global</div>
+                            <div class="text-[11px] text-slate-400">Foreign Tier-1 OEM</div>
+                            <div class="mt-4 space-y-2 text-slate-300">
+                                <div><strong class="text-slate-400">Pricing:</strong> Premium ($320–$350/kWh), 100% upfront Capex</div>
+                                <div><strong class="text-slate-400">Reach:</strong> Central SECI utility tenders & MNCs</div>
+                                <div><strong class="text-slate-400">Service:</strong> Remote desk; 72–96 hr dispatch</div>
+                                <div><strong class="text-slate-400">Value Prop:</strong> Bankable Tier-1 global certification</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 text-rose-400 text-[11px]">
+                            Weakness: Inflexible pricing & slow regional support.
+                        </div>
+                    </div>
+
+                    <!-- Competitor B -->
+                    <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="font-bold text-white text-sm">Bharat Heavy EPC</div>
+                            <div class="text-[11px] text-slate-400">Domestic Infra Conglomerate</div>
+                            <div class="mt-4 space-y-2 text-slate-300">
+                                <div><strong class="text-slate-400">Pricing:</strong> High Capex ($280–$300/kWh) in EPC package</div>
+                                <div><strong class="text-slate-400">Reach:</strong> State DISCOMs, PSUs, civil tenders</div>
+                                <div><strong class="text-slate-400">Service:</strong> Civil crews; lacks cell-level diagnostics</div>
+                                <div><strong class="text-slate-400">Value Prop:</strong> Single-vendor EPC civil execution</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 text-rose-400 text-[11px]">
+                            Weakness: Treats storage as passive civil asset.
+                        </div>
+                    </div>
+
+                    <!-- Competitor C -->
+                    <div class="bg-slate-950 border border-slate-800 rounded-xl p-4 flex flex-col justify-between">
+                        <div>
+                            <div class="font-bold text-white text-sm">ElectroCell Direct</div>
+                            <div class="text-[11px] text-slate-400">Budget Gray Importer</div>
+                            <div class="mt-4 space-y-2 text-slate-300">
+                                <div><strong class="text-slate-400">Pricing:</strong> Budget ($180–$210/kWh), unbundled</div>
+                                <div><strong class="text-slate-400">Reach:</strong> Small SME factories & traders</div>
+                                <div><strong class="text-slate-400">Service:</strong> Basic 1-year; no local O&M support</div>
+                                <div><strong class="text-slate-400">Value Prop:</strong> Cheap diesel-generator replacement</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 text-rose-400 text-[11px]">
+                            Weakness: High thermal failure rates in Indian heat.
+                        </div>
+                    </div>
+
+                    <!-- Our Company -->
+                    <div class="bg-slate-950 border border-emerald-500/50 rounded-xl p-4 flex flex-col justify-between relative">
+                        <div class="absolute -top-2.5 right-3 bg-emerald-500 text-slate-950 text-[10px] font-extrabold px-2 py-0.5 rounded-full uppercase">
+                            Our Position
+                        </div>
+                        <div>
+                            <div class="font-bold text-emerald-400 text-sm">AuraGrid Solutions</div>
+                            <div class="text-[11px] text-emerald-300/70">Flexible ESaaS & Turnkey</div>
+                            <div class="mt-4 space-y-2 text-slate-300">
+                                <div><strong class="text-slate-400">Pricing:</strong> $0 Upfront ESaaS OR $240/kWh Capex</div>
+                                <div><strong class="text-slate-400">Reach:</strong> High-tariff C&I manufacturing clusters</div>
+                                <div><strong class="text-slate-400">Service:</strong> &lt;12h on-site dispatch; 99.5% uptime SLA</div>
+                                <div><strong class="text-slate-400">Value Prop:</strong> Zero-Capex bill reduction + smart cloud EMS</div>
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-800 text-emerald-400 text-[11px]">
+                            Advantage: Rapid 90-day sales cycle & 90%+ retention.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800 py-4 bg-slate-900/60 text-center text-xs text-slate-500">
+        BESS India Market Entry Portfolio Project • Built for Strategy & Analytics Presentation
+    </footer>
+
+    <!-- Interactive Logic Script -->
+    <script>
+        // State Raw Scores Dataset
+        const rawStates = [
+            { id: 1, name: 'Gujarat', grid: 'Western', demand: 92.5, profit: 88.0, comp: 75.0 },
+            { id: 2, name: 'Maharashtra', grid: 'Western', demand: 85.0, profit: 82.5, comp: 60.0 },
+            { id: 3, name: 'Tamil Nadu', grid: 'Southern', demand: 88.0, profit: 65.0, comp: 68.0 },
+            { id: 4, name: 'Rajasthan', grid: 'Northern', demand: 95.0, profit: 60.0, comp: 85.0 },
+            { id: 5, name: 'Karnataka', grid: 'Southern', demand: 78.0, profit: 70.0, comp: 80.0 }
+        ];
+
+        let scoresChart = null;
+        let financialChart = null;
+
+        function switchTab(tabId) {
+            ['tab-overview', 'tab-sql', 'tab-financial', 'tab-competitive'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+                const btn = document.getElementById('btn-' + id);
+                btn.className = "py-3 px-1 text-slate-400 hover:text-slate-200 transition-colors";
+            });
+            document.getElementById(tabId).classList.remove('hidden');
+            const activeBtn = document.getElementById('btn-' + tabId);
+            activeBtn.className = "py-3 px-1 tab-active transition-colors";
+
+            if (tabId === 'tab-sql' && scoresChart) scoresChart.resize();
+            if (tabId === 'tab-financial' && financialChart) financialChart.resize();
+        }
+
+        function calculateScores(wD, wP, wC) {
+            return rawStates.map(s => {
+                const composite = (s.demand * wD) + (s.profit * wP) + ((100 - s.comp) * wC);
+                return { ...s, score: parseFloat(composite.toFixed(2)) };
+            }).sort((a, b) => b.score - a.score);
+        }
+
+        function renderTable(rankedList) {
+            const tbody = document.getElementById('table-rankings');
+            tbody.innerHTML = '';
+            rankedList.forEach((item, index) => {
+                const rank = index + 1;
+                let phaseBadge = '';
+                if (rank === 1) phaseBadge = '<span class="bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[10px]">Wave 1: Anchor</span>';
+                else if (rank <= 3) phaseBadge = '<span class="bg-cyan-500/20 text-cyan-400 px-2 py-0.5 rounded text-[10px]">Wave 2: Expand</span>';
+                else phaseBadge = '<span class="bg-slate-700/50 text-slate-400 px-2 py-0.5 rounded text-[10px]">Wave 3: Monitor</span>';
+
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-slate-800/40 transition-colors';
+                row.innerHTML = `
+                    <td class="py-2.5 px-3 font-bold ${rank === 1 ? 'text-emerald-400' : 'text-slate-400'}">#${rank}</td>
+                    <td class="py-2.5 px-3 font-semibold text-white">${item.name}</td>
+                    <td class="py-2.5 px-3 text-slate-400">${item.grid}</td>
+                    <td class="py-2.5 px-3">${item.demand.toFixed(1)}</td>
+                    <td class="py-2.5 px-3">${item.profit.toFixed(1)}</td>
+                    <td class="py-2.5 px-3">${item.comp.toFixed(1)}</td>
+                    <td class="py-2.5 px-3 font-bold text-emerald-400">${item.score.toFixed(2)}</td>
+                    <td class="py-2.5 px-3">${phaseBadge}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+
+        function updateWeights() {
+            const dVal = parseInt(document.getElementById('range-demand').value);
+            const pVal = parseInt(document.getElementById('range-profit').value);
+            const cVal = parseInt(document.getElementById('range-comp').value);
+
+            document.getElementById('val-demand').innerText = dVal + '%';
+            document.getElementById('val-profit').innerText = pVal + '%';
+            document.getElementById('val-comp').innerText = cVal + '%';
+
+            const wD = dVal / 100;
+            const wP = pVal / 100;
+            const wC = cVal / 100;
+
+            const ranked = calculateScores(wD, wP, wC);
+            renderTable(ranked);
+            updateScoresChart(ranked);
+        }
+
+        function resetWeights() {
+            document.getElementById('range-demand').value = 40;
+            document.getElementById('range-profit').value = 40;
+            document.getElementById('range-comp').value = 20;
+            updateWeights();
+        }
+
+        function updateScoresChart(ranked) {
+            if (!scoresChart) return;
+            scoresChart.data.labels = ranked.map(r => r.name);
+            scoresChart.data.datasets[0].data = ranked.map(r => r.score);
+            scoresChart.update();
+        }
+
+        // Initialize Charts on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            const initialRanked = calculateScores(0.40, 0.40, 0.20);
+            renderTable(initialRanked);
+
+            // Chart 1: Scores
+            const ctx1 = document.getElementById('chart-scores').getContext('2d');
+            scoresChart = new Chart(ctx1, {
+                type: 'bar',
+                data: {
+                    labels: initialRanked.map(r => r.name),
+                    datasets: [{
+                        label: 'Composite Market Attractiveness Score',
+                        data: initialRanked.map(r => r.score),
+                        backgroundColor: ['#10b981', '#06b6d4', '#38bdf8', '#818cf8', '#64748b'],
+                        borderRadius: 6
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { min: 50, max: 85, grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } },
+                        x: { grid: { display: false }, ticks: { color: '#f8fafc', font: { weight: 'bold' } } }
+                    }
+                }
+            });
+
+            // Chart 2: Financial Model
+            const ctx2 = document.getElementById('chart-financial').getContext('2d');
+            financialChart = new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['Year 1', 'Year 2', 'Year 3'],
+                    datasets: [
+                        {
+                            label: 'Base Case Revenue ($M)',
+                            data: [6.00, 18.20, 38.50],
+                            backgroundColor: '#06b6d4',
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'Aggressive Scenario ($M)',
+                            data: [7.20, 24.05, 58.80],
+                            backgroundColor: '#10b981',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#f8fafc', font: { weight: 'bold' } } }
+                    },
+                    scales: {
+                        y: { grid: { color: '#1e293b' }, ticks: { color: '#94a3b8' } },
+                        x: { grid: { display: false }, ticks: { color: '#f8fafc', font: { weight: 'bold' } } }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
